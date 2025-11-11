@@ -55,7 +55,8 @@ export const dbRequest = async (
     if (resultSetNames && resultSetNames.length > 0) {
       const namedResults: { [key: string]: any[] } = {};
       resultSetNames.forEach((name, index) => {
-        namedResults[name] = result.recordsets[index] || [];
+        const recordsets = result.recordsets as any[];
+        namedResults[name] = recordsets[index] || [];
       });
       return namedResults;
     }

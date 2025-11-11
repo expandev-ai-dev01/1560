@@ -1,10 +1,13 @@
 import { Router } from 'express';
+import * as taskController from '@/api/v1/internal/task/controller';
 
 const router = Router();
 
-// Internal routes will be added here as features are implemented
-// Example: Task management routes
-// Example: User profile routes
-// Example: Category management routes
+// Task routes - /api/v1/internal/task
+router.post('/task', taskController.postHandler);
+router.get('/task', taskController.getHandler);
+router.get('/task/:id', taskController.getByIdHandler);
+router.put('/task/:id', taskController.putHandler);
+router.delete('/task/:id', taskController.deleteHandler);
 
 export default router;
